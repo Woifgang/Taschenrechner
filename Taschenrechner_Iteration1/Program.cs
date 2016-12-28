@@ -13,21 +13,65 @@ namespace Taschenrechner_Iteration1
             //Addieren: Als Benutzer möchte ich 2 Zahlen eingeben um deren Summe zu berechnen zu können
             Console.Write("Geben Sie hier die erste Zahl ein die Sie addieren möchten: ");
             string ersteZahl = Console.ReadLine();
+            Console.Write("Plus, Minus, Mal oder Geteilt? :");
+            string Symbol = Console.ReadLine();
             Console.Write("Geben Sie hier die zweite Zahl ein die Sie addieren möchten: ");
             string zweiteZahl = Console.ReadLine();
 
-            // Umwandlung String -> Int
-            int ersteZahlWandlung = Convert.ToInt32(ersteZahl);
-            int zweiteZahlWandlung = Convert.ToInt32(zweiteZahl);
+            float ersteZahlWand;
+            float tmpFloat;
 
-            // Berechnung
-            int ergebnis = ersteZahlWandlung + zweiteZahlWandlung;
+            if (float.TryParse(ersteZahl, out tmpFloat))
+            {
+                ersteZahlWand = tmpFloat;
+            }
 
-            //Ausgabe
-            Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
-            Console.ReadLine();
-            
+            if (float.TryParse(zweiteZahl,out tmpFloat))
+            {
+                ersteZahlWand = tmpFloat;
+            }
 
+
+            if (tmpFloat != 0)
+            {
+
+                // Umwandlung String -> Float
+                float ersteZahlWandlung = Convert.ToSingle(ersteZahl);
+                float zweiteZahlWandlung = Convert.ToSingle(zweiteZahl);
+
+
+                float ergebnis = 0;
+                // Berechnung
+                if (Symbol == "+")
+                {
+                    ergebnis = ersteZahlWandlung + zweiteZahlWandlung;
+                }
+
+                else if (Symbol == "-")
+                {
+                    ergebnis = ersteZahlWandlung - zweiteZahlWandlung;
+                }
+
+                else if (Symbol == "*")
+                {
+                    ergebnis = ersteZahlWandlung * zweiteZahlWandlung;
+                }
+
+                else if (Symbol == "/")
+                {
+                    ergebnis = ersteZahlWandlung / zweiteZahlWandlung;
+                }
+
+                //Ausgabe
+                Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Es wurde keine Gültige Zahl eingegeben, drücken Sie eine Taste um das Programm zu beenden.");
+                Console.ReadLine();
+            }
         }
     }
 }

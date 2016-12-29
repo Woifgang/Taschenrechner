@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Taschenrechner_Iteration1
+namespace Taschenrechner
 {
     class Program
     {
@@ -17,11 +17,11 @@ namespace Taschenrechner_Iteration1
             string zweiteZahl = Console.ReadLine();
 
             // Umwandlung String -> Int
-            int ersteZahlWandlung = Convert.ToInt32(ersteZahl);
-            int zweiteZahlWandlung = Convert.ToInt32(zweiteZahl);
+            double ersteZahlWandlung = Convert.ToDouble(ersteZahl);
+            double zweiteZahlWandlung = Convert.ToDouble(zweiteZahl);
 
             // Berechnung
-            int ergebnis = ersteZahlWandlung + zweiteZahlWandlung;
+           double ergebnis = ersteZahlWandlung + zweiteZahlWandlung;
 
             //Ausgabe
             Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);

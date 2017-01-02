@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taschenrechner", "Taschenre
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DDCDFF10-E990-4968-9FD2-990EC1918B8E}"
 	ProjectSection(SolutionItems) = preProject
+		Release\ReadMe.txt = Release\ReadMe.txt
 		Userstory.txt = Userstory.txt
 	EndProjectSection
 EndProject

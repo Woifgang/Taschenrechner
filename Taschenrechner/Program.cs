@@ -23,11 +23,17 @@ namespace Taschenrechner
             // Berechnung
            double ergebnis = ersteZahlWandlung + zweiteZahlWandlung;
 
-            //Ausgabe
             Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
-            Console.ReadLine();
+            WarteAufBenutzerEingabe();
             
+        }
 
+        static void WarteAufBenutzerEingabe()
+        {
+            //Ausgabe
+            
+            Console.WriteLine("Zum Beenden Return drücken");
+            Console.ReadLine();
         }
     }
 }

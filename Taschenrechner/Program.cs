@@ -21,19 +21,26 @@ namespace Taschenrechner
             double zweiteZahlWandlung = Convert.ToDouble(zweiteZahl);
 
             // Berechnung
-           double ergebnis = ersteZahlWandlung + zweiteZahlWandlung;
+            double ergebnis = Addieren(ersteZahlWandlung, zweiteZahlWandlung);
 
             Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
+
             WarteAufBenutzerEingabe();
             
         }
 
-        static void WarteAufBenutzerEingabe()
+        static double Addieren(double ersteZahl, double zweiteZahl)
         {
-            //Ausgabe
-            
+            double summe = ersteZahl + zweiteZahl;
+            return summe;         
+        }
+
+
+        static void WarteAufBenutzerEingabe()
+        {         
             Console.WriteLine("Zum Beenden Return drücken");
             Console.ReadLine();
         }
+
     }
 }

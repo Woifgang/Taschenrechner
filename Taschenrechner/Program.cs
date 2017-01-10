@@ -11,10 +11,9 @@ namespace Taschenrechner
         static void Main(string[] args)
         {
             //Addieren: Als Benutzer möchte ich 2 Zahlen eingeben um deren Summe zu berechnen zu können
-            Console.Write("Geben Sie hier die erste Zahl ein die Sie addieren möchten: ");
-            string ersteZahl = Console.ReadLine();
-            Console.Write("Geben Sie hier die zweite Zahl ein die Sie addieren möchten: ");
-            string zweiteZahl = Console.ReadLine();
+            
+            string ersteZahl = HoleSummanden("Geben Sie hier die erste Zahl ein die Sie addieren möchten: ");
+            string zweiteZahl = HoleSummanden("Geben Sie hier die zweite Zahl ein die Sie addieren möchten: ");
 
             // Umwandlung String -> Int
             double ersteZahlWandlung = Convert.ToDouble(ersteZahl);
@@ -29,6 +28,16 @@ namespace Taschenrechner
             
         }
 
+
+        static string HoleSummanden(string Ausgabetext)
+        {
+            Console.Write(Ausgabetext);
+            string summand = Console.ReadLine();
+
+            return summand;
+        }
+
+
         static double Addieren(double ersteZahl, double zweiteZahl)
         {
             double summe = ersteZahl + zweiteZahl;
@@ -41,6 +50,5 @@ namespace Taschenrechner
             Console.WriteLine("Zum Beenden Return drücken");
             Console.ReadLine();
         }
-
     }
 }

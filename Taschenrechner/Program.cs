@@ -10,45 +10,47 @@ namespace Taschenrechner
     {
         static void Main(string[] args)
         {
-            //Addieren: Als Benutzer möchte ich 2 Zahlen eingeben um deren Summe zu berechnen zu können
-            
-            string ersteZahl = HoleSummanden("Geben Sie hier die erste Zahl ein die Sie addieren möchten: ");
-            string zweiteZahl = HoleSummanden("Geben Sie hier die zweite Zahl ein die Sie addieren möchten: ");
+            // Benutzereingabe: Als Benutzer möchte ich 2 Zahlen eingeben um deren Ergebnis zu berechnen          
+            string ersteZahl = Benutzereingabe("Geben Sie hier die erste Zahl ein: ");
+            string zweiteZahl = Benutzereingabe("Geben Sie hier die zweite Zahl ein: ");
 
-            // Umwandlung String -> Int
+            // Todo: Spätere Auslagerung in eine Methode; Umwandlung String -> Double
             double ersteZahlWandlung = Convert.ToDouble(ersteZahl);
             double zweiteZahlWandlung = Convert.ToDouble(zweiteZahl);
 
             // Berechnung
             double ergebnis = Addieren(ersteZahlWandlung, zweiteZahlWandlung);
 
+            // Ergebnis ausgeben
             Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
 
-            WarteAufBenutzerEingabe();
+            // Programm beenden
+            Benutzereingabe("Zum Beenden Return drücken");
             
         }
 
-
-        static string HoleSummanden(string Ausgabetext)
+        // Methode: Benutzerdefinierten Text ausgeben und Zahl als String aus Konsole holen
+        static string Benutzereingabe(string Ausgabetext)
         {
             Console.Write(Ausgabetext);
-            string summand = Console.ReadLine();
+            string eingabewert = Console.ReadLine();
 
-            return summand;
+            return eingabewert;
         }
 
-
+        // Methode: Addieren
         static double Addieren(double ersteZahl, double zweiteZahl)
         {
-            double summe = ersteZahl + zweiteZahl;
-            return summe;         
+            double ergebnis = ersteZahl + zweiteZahl;
+            return ergebnis;         
         }
 
-
-        static void WarteAufBenutzerEingabe()
-        {         
-            Console.WriteLine("Zum Beenden Return drücken");
-            Console.ReadLine();
+        // Methode: Dividieren
+        static double Dividieren(double ersteZahl, double zweiteZahl)
+        {
+            double ergebnis = ersteZahl - zweiteZahl;
+            return ergebnis;
         }
+
     }
 }

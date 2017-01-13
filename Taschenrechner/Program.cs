@@ -19,22 +19,29 @@ namespace Taschenrechner
             double ersteZahlWandlung = Convert.ToDouble(ersteZahl);
             double zweiteZahlWandlung = Convert.ToDouble(zweiteZahl);
 
+            double ergebnis = 0;
+
             // Berechnung
-            if (operand=="+")
+            switch (operand)
             {
-                double ergebnis = Addieren(ersteZahlWandlung, zweiteZahlWandlung);
-                Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
+                case "+":
+                    ergebnis = Addieren(ersteZahlWandlung, zweiteZahlWandlung);
+                    Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
+                    break;
+
+                case "-":
+                    ergebnis = Subtrahieren(ersteZahlWandlung, zweiteZahlWandlung);
+                    Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
+                    break;
+                case "*":
+                    
+                case "/":
+                    
+                default:
+                    BenutzerEingabe("Momentan funktioniert nur + und -");
+                    break;
             }
-            else if (operand== "-")
-            {
-                double ergebnis = Subtrahieren(ersteZahlWandlung, zweiteZahlWandlung);
-                Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
-            }
-            else
-            {
-                BenutzerEingabe("Momentan funktioniert nur + und -");
-            }
-            
+           
             // Programm beenden
             BenutzerEingabe("Zum Beenden Return drücken");
             
@@ -63,5 +70,18 @@ namespace Taschenrechner
             return ergebnis;
         }
 
+        // Methode: Multiplizieren
+        static double Multiplizieren(double ersteZahl, double zweiteZahl)
+        {
+            double ergebnis = ersteZahl * zweiteZahl;
+            return ergebnis;
+        }
+
+        // Methode: Dividieren
+        static double Dividieren(double ersteZahl, double zweiteZahl)
+        {
+            double ergebnnis = ersteZahl / zweiteZahl;
+            return ergebnnis;
+        }
     }
 }

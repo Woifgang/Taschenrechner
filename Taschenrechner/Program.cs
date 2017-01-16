@@ -33,12 +33,19 @@ namespace Taschenrechner
                     ergebnis = Subtrahieren(ersteZahlWandlung, zweiteZahlWandlung);
                     Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
                     break;
+
                 case "*":
-                    
+                    ergebnis = Multiplizieren(ersteZahlWandlung, zweiteZahlWandlung);
+                    Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
+                    break;
+
                 case "/":
+                    ergebnis = Dividieren(ersteZahlWandlung, zweiteZahlWandlung);
+                    Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
+                    break;
                     
                 default:
-                    BenutzerEingabe("Momentan funktioniert nur + und -");
+                    BenutzerEingabe("Bitte Eingabe prüfen");
                     break;
             }
            

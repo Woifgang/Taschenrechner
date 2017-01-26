@@ -26,29 +26,16 @@ namespace Taschenrechner
             model.Berechnen(ersteZahlWandlung, zweiteZahlWandlung, operand);
 
             // Ergebnis ausgeben
-            Ausgabe(model.Resultat, operand);
+            benutzeraktion.Ergebnis= model.Resultat ;
+            benutzeraktion.Operand  = operand ;
+
+            benutzeraktion.Ausgabe();
 
             // Programm beenden
             benutzeraktion.BenutzerEingabe("Zum Beenden Return drücken");
         }
 
 
-        // Methode: Ausgabe
-        static void Ausgabe(double ergebnis, string operand)
-        {
-            switch (operand)
-            {
-                case "+":
-                case "-":
-                case "*":
-                case "/":
-                    Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
-                    break;
-
-                default:
-                    Console.WriteLine("Falsche Operation eingeben, es ist nur + - * / möglich");
-                    break;
-            }
+        
         }
-    }
 }

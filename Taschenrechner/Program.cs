@@ -25,7 +25,7 @@ namespace Taschenrechner
 
             // Ergebnis ausgeben
             Ausgabe(model.Resultat, operand);
-           
+
             // Programm beenden
             BenutzerEingabe("Zum Beenden Return drücken");
         }
@@ -39,7 +39,7 @@ namespace Taschenrechner
             return eingabewert;
         }
 
-        
+
 
 
         // Methode: Ausgabe

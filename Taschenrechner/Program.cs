@@ -20,10 +20,11 @@ namespace Taschenrechner
             double zweiteZahlWandlung = Convert.ToDouble(zweiteZahl);
 
             // Ergebnis berechnen
-            double ergebnis = Berechnung(ersteZahlWandlung, zweiteZahlWandlung, operand);
+            Rechnermodell model = new Rechnermodell();
+            model.Berechnen(ersteZahlWandlung, zweiteZahlWandlung, operand);
 
             // Ergebnis ausgeben
-            Ausgabe(ergebnis, operand);
+            Ausgabe(model.Resultat, operand);
            
             // Programm beenden
             BenutzerEingabe("Zum Beenden Return drücken");
@@ -38,63 +39,8 @@ namespace Taschenrechner
             return eingabewert;
         }
 
-        // Methode: Addieren
-        static double Addieren(double ersteZahl, double zweiteZahl)
-        {
-            double ergebnis = ersteZahl + zweiteZahl;
-            return ergebnis;         
-        }
+        
 
-        // Methode: Subtrahieren
-        static double Subtrahieren(double ersteZahl, double zweiteZahl)
-        {
-            double ergebnis = ersteZahl - zweiteZahl;
-            return ergebnis;
-        }
-
-        // Methode: Multiplizieren
-        static double Multiplizieren(double ersteZahl, double zweiteZahl)
-        {
-            double ergebnis = ersteZahl * zweiteZahl;
-            return ergebnis;
-        }
-
-        // Methode: Dividieren
-        static double Dividieren(double ersteZahl, double zweiteZahl)
-        {
-            double ergebnnis = ersteZahl / zweiteZahl;
-            return ergebnnis;
-        }
-
-        // Methode: Berechnung
-        static double Berechnung(double ersteZahlWandlung, double zweiteZahlWandlung, string operand)
-        {
-            double ergebnis = 0;
-
-            switch (operand)
-            {
-                case "+":
-                    ergebnis = Addieren(ersteZahlWandlung, zweiteZahlWandlung);
-                    break;
-
-                case "-":
-                    ergebnis = Subtrahieren(ersteZahlWandlung, zweiteZahlWandlung);
-                    break;
-
-                case "*":
-                    ergebnis = Multiplizieren(ersteZahlWandlung, zweiteZahlWandlung);
-                    break;
-
-                case "/":
-                    ergebnis = Dividieren(ersteZahlWandlung, zweiteZahlWandlung);
-                    break;
-
-                default:
-                    ergebnis = 0;
-                    break;             
-            }
-            return ergebnis;
-        }
 
         // Methode: Ausgabe
         static void Ausgabe(double ergebnis, string operand)
@@ -102,17 +48,8 @@ namespace Taschenrechner
             switch (operand)
             {
                 case "+":
-                    Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
-                    break;
-
                 case "-":
-                    Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
-                    break;
-
                 case "*":
-                     Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
-                    break;
-
                 case "/":
                     Console.WriteLine("Das Ergebnis lautet: {0}", ergebnis);
                     break;

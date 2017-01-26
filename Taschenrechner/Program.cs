@@ -10,10 +10,12 @@ namespace Taschenrechner
     {
         static void Main(string[] args)
         {
-            // Benutzereingabe: Als Benutzer möchte ich 2 Zahlen eingeben um deren Ergebnis zu berechnen          
-            string ersteZahl = BenutzerEingabe("Geben Sie hier die erste Zahl ein: ");
-            string zweiteZahl = BenutzerEingabe("Geben Sie hier die zweite Zahl ein: ");
-            string operand = BenutzerEingabe("Geben sie + , - , * oder / ein: ");
+            // Benutzereingabe: Als Benutzer möchte ich 2 Zahlen eingeben um deren Ergebnis zu berechnen     
+            Benutzereingaben benutzeraktion = new Benutzereingaben();
+
+            string ersteZahl = benutzeraktion.BenutzerEingabe("Geben Sie hier die erste Zahl ein: ");
+            string zweiteZahl = benutzeraktion.BenutzerEingabe("Geben Sie hier die zweite Zahl ein: ");
+            string operand = benutzeraktion.BenutzerEingabe("Geben sie + , - , * oder / ein: ");
 
             // Todo: Spätere Auslagerung in eine Methode; Umwandlung String -> Double
             double ersteZahlWandlung = Convert.ToDouble(ersteZahl);
@@ -27,19 +29,8 @@ namespace Taschenrechner
             Ausgabe(model.Resultat, operand);
 
             // Programm beenden
-            BenutzerEingabe("Zum Beenden Return drücken");
+            benutzeraktion.BenutzerEingabe("Zum Beenden Return drücken");
         }
-
-        // Methode: Benutzerdefinierten Text ausgeben und Zahl als String aus Konsole holen
-        static string BenutzerEingabe(string Ausgabetext)
-        {
-            Console.Write(Ausgabetext);
-            string eingabewert = Console.ReadLine();
-
-            return eingabewert;
-        }
-
-
 
 
         // Methode: Ausgabe

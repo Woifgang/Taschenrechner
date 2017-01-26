@@ -13,21 +13,12 @@ namespace Taschenrechner
 
         }
 
-        // Methode: Benutzerdefinierten Text ausgeben und Zahl als String aus Konsole holen
-
-        public string Benutzertext { get; set; }
-
-        public void Ausgabe()
+        public string BenutzerEingabe(string Ausgabetext)
         {
-            Console.Write(Benutzertext);
-            
-        }
+            Console.Write(Ausgabetext);
+            string eingabewert = Console.ReadLine();
 
-        public string Eingabe()
-        {
-            string eingabe = Console.ReadLine();
-
-            return eingabe;
+            return eingabewert;
         }
     }
 }

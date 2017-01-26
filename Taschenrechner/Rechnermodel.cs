@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Taschenrechner
 {
-    class Rechnermodell
+    class Rechnermodel
     {
-        public Rechnermodell()
+        public Rechnermodel()
         {
             Resultat = 0;
         }

@@ -10,32 +10,28 @@ namespace Taschenrechner
     {
         static void Main(string[] args)
         {
-            // Benutzereingabe: Als Benutzer möchte ich 2 Zahlen eingeben um deren Ergebnis zu berechnen     
-            Benutzereingaben benutzeraktion = new Benutzereingaben();
+            Rechnermodel model = new Rechnermodel();
+            Consoleview view = new Consoleview(model);
 
-            string ersteZahl = benutzeraktion.BenutzerEingabe("Geben Sie hier die erste Zahl ein: ");
-            string zweiteZahl = benutzeraktion.BenutzerEingabe("Geben Sie hier die zweite Zahl ein: ");
-            string operand = benutzeraktion.BenutzerEingabe("Geben sie + , - , * oder / ein: ");
+            string ersteZahl = view.HoleZahl();
+            string operand = view.GebeOperandEin();
+            string zweiteZahl = view.HoleZahl();
+
 
             // Todo: Spätere Auslagerung in eine Methode; Umwandlung String -> Double
             double ersteZahlWandlung = Convert.ToDouble(ersteZahl);
             double zweiteZahlWandlung = Convert.ToDouble(zweiteZahl);
 
             // Ergebnis berechnen
-            Rechnermodell model = new Rechnermodell();
+            
             model.Berechnen(ersteZahlWandlung, zweiteZahlWandlung, operand);
 
-            // Ergebnis ausgeben
-            benutzeraktion.Ergebnis= model.Resultat ;
-            benutzeraktion.Operand  = operand ;
-
-            benutzeraktion.Ausgabe();
+            view.Ausgabe();
 
             // Programm beenden
-            benutzeraktion.BenutzerEingabe("Zum Beenden Return drücken");
+            view.BenutzerEingabe("Zum Beenden Return drücken");
         }
+                
+   }
 
-
-        
-        }
 }

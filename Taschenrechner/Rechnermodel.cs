@@ -15,24 +15,24 @@ namespace Taschenrechner
 
         public double Resultat { get; private set; }
 
-        public void Berechnen(double ersteZahlWandlung, double zweiteZahlWandlung, string operand)
+        public void Berechnen(double ersteZahl, double zweiteZahl, string operand)
         {
             switch (operand)
             {
                 case "+":
-                    Resultat = Addieren(ersteZahlWandlung, zweiteZahlWandlung);
+                    Resultat = Addieren(ersteZahl, zweiteZahl);
                     break;
 
                 case "-":
-                    Resultat = Subtrahieren(ersteZahlWandlung, zweiteZahlWandlung);
+                    Resultat = Subtrahieren(ersteZahl, zweiteZahl);
                     break;
 
                 case "*":
-                    Resultat = Multiplizieren(ersteZahlWandlung, zweiteZahlWandlung);
+                    Resultat = Multiplizieren(ersteZahl, zweiteZahl);
                     break;
 
                 case "/":
-                    Resultat = Dividieren(ersteZahlWandlung, zweiteZahlWandlung);
+                    Resultat = Dividieren(ersteZahl, zweiteZahl);
                     break;
 
                 default:

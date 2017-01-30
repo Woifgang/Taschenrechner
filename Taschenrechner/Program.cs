@@ -14,7 +14,7 @@ namespace Taschenrechner
             Consoleview view = new Consoleview(model);
             Anwendungscontroller controller = new Anwendungscontroller(model, view);
           
-            controller.Ausgabe();
+            controller.AnzeigeConsole();
 
             
         }

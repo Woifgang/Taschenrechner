@@ -23,25 +23,23 @@ namespace Taschenrechner
             this.model = model;
             operand = "unbekannt";
         }
-
-        public string BenutzerEingabe(string Ausgabetext)
-        {
-            Console.Write(Ausgabetext);
-            string eingabewert = Console.ReadLine();
-
-            return eingabewert;
-        }
-
+        
         public void Ausgabe()
         {
             this.Operand = operand;
             switch (operand )
             {
                 case "+":
+                    Console.WriteLine("Das Ergebnis der ~ plus ~ Rechnung lautet: {0}", model.Resultat);
+                    break;
                 case "-":
+                    Console.WriteLine("Das Ergebnis der ~ minus ~ Rechnung lautet: {0}", model.Resultat );
+                    break;
                 case "*":
+                    Console.WriteLine("Das Ergebnis der ~ mal ~ Rechnung lautet: {0}", model.Resultat);
+                    break;
                 case "/":
-                    Console.WriteLine("Das Ergebnis lautet: {0}", model.Resultat);
+                    Console.WriteLine("Das Ergebnis der ~ geteilt ~ Rechnung lautet: {0}", model.Resultat);
                     break;
 
                 default:
@@ -69,5 +67,6 @@ namespace Taschenrechner
             Console.Write("Zum Beenden bitte Return drücken");
             return Console.ReadLine();
         }
+        
     }
 }

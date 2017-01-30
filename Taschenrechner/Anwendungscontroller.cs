@@ -17,7 +17,7 @@ namespace Taschenrechner
             this.view = view;
         }
 
-        public void Ausgabe()
+        public void AnzeigeConsole()
         {
 
             double ersteZahl = view.HoleZahl();
@@ -29,7 +29,7 @@ namespace Taschenrechner
 
 
             // Programm beenden
-            view.BenutzerEingabe("Zum Beenden Return drücken");
+            view.BeendeProgramm();
         }
 
 

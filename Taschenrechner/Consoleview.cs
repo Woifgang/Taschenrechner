@@ -10,9 +10,18 @@ namespace Taschenrechner
     {
         private Rechnermodel model;
 
+        private string operand;
+
+        public string Operand
+        {
+            get { return operand; }
+            private set { operand = value; }
+        }
+
         public Consoleview(Rechnermodel model)
         {
             this.model = model;
+            operand = "unbekannt";
         }
 
         public string BenutzerEingabe(string Ausgabetext)
@@ -25,6 +34,7 @@ namespace Taschenrechner
 
         public void Ausgabe()
         {
+            this.Operand = operand;
             switch (operand )
             {
                 case "+":
@@ -39,14 +49,13 @@ namespace Taschenrechner
                     break;
             }
         }
-
-        public string HoleZahl()
+        
+        public double HoleZahl()
         {
             Console.Write("Geben Sie bitte eine Zahl ein: ");
-            return Console.ReadLine();             
+            double zahl = Convert.ToDouble(Console.ReadLine());
+            return zahl;                            
         }
-
-        private string operand;
 
         public string GebeOperandEin()
         {

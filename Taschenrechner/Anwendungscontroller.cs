@@ -19,19 +19,18 @@ namespace Taschenrechner
 
         public void AnzeigeConsole()
         {
-
-            double ersteZahl = view.HoleZahl();
-            string operand = view.GebeOperandEin();
-            double zweiteZahl = view.HoleZahl();
-
-            model.Berechnen(ersteZahl, zweiteZahl, operand);
+            // Benutzereingaben holen
+            view.HoleBenutzerEingabe();
+            
+            // Berechnen der Benutzereingaben
+            model.Berechnen();
+            
+            // Ergebnis Ausgeben
             view.Ausgabe();
-
 
             // Programm beenden
             view.BeendeProgramm();
         }
-
 
     }
 }

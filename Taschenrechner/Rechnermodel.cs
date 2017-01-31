@@ -8,6 +8,11 @@ namespace Taschenrechner
 {
     class Rechnermodel
     {
+
+        public string Operand { get; set; }
+        public double ErsteZahl { get; set; }
+        public double ZweiteZahl { get; set; }
+
         public Rechnermodel()
         {
             Resultat = 0;
@@ -15,24 +20,24 @@ namespace Taschenrechner
 
         public double Resultat { get; private set; }
 
-        public void Berechnen(double ersteZahl, double zweiteZahl, string operand)
+        public void Berechnen()
         {
-            switch (operand)
+            switch (Operand)
             {
                 case "+":
-                    Resultat = Addieren(ersteZahl, zweiteZahl);
+                    Resultat = Addieren(ErsteZahl, ZweiteZahl);
                     break;
 
                 case "-":
-                    Resultat = Subtrahieren(ersteZahl, zweiteZahl);
+                    Resultat = Subtrahieren(ErsteZahl, ZweiteZahl);
                     break;
 
                 case "*":
-                    Resultat = Multiplizieren(ersteZahl, zweiteZahl);
+                    Resultat = Multiplizieren(ErsteZahl, ZweiteZahl);
                     break;
 
                 case "/":
-                    Resultat = Dividieren(ersteZahl, zweiteZahl);
+                    Resultat = Dividieren(ErsteZahl, ZweiteZahl);
                     break;
 
                 default:

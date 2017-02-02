@@ -11,6 +11,7 @@ namespace Taschenrechner
         private Rechnermodel model;
         private Consoleview view;
 
+        
         public Anwendungscontroller(Rechnermodel model, Consoleview view)
         {
             this.model = model;
@@ -19,16 +20,13 @@ namespace Taschenrechner
 
         public void AnzeigeConsole()
         {
-            // Benutzereingaben holen
-            view.HoleBenutzerEingabe();
+            while (!view.BenutzerFertig)
+            {
+                view.HoleBenutzerEingabe();
+                model.Berechnen();
+                view.Ausgabe();
+            }
             
-            // Berechnen der Benutzereingaben
-            model.Berechnen();
-            
-            // Ergebnis Ausgeben
-            view.Ausgabe();
-
-            // Programm beenden
             view.BeendeProgramm();
         }
 

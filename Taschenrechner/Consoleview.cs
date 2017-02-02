@@ -10,21 +10,13 @@ namespace Taschenrechner
     {
         private Rechnermodel model;
 
-        /* private string operand;
-
-         public string Operand
-         {
-             get { return operand; }
-             private set { operand = value; }
-         }*/
-
-
-
+        public bool BenutzerFertig { get; private set; }
 
         public Consoleview(Rechnermodel model)
         {
             this.model = model;
             model.Operand = "unbekannt";
+            BenutzerFertig = false;
         }
         
         public void HoleBenutzerEingabe()
@@ -60,9 +52,15 @@ namespace Taschenrechner
         
         private double HoleZahl()
         {
-            Console.Write("Geben Sie bitte eine Zahl ein: ");
-            double zahl = Convert.ToDouble(Console.ReadLine());
-            return zahl;                            
+            Console.Write("Geben Sie bitte eine Zahl ein oder beenden mit FERTIG: ");
+            string eingabe = Console.ReadLine();
+            if (eingabe == "FERTIG")
+            {
+                BenutzerFertig = true;
+                eingabe = "0.0";
+            }
+
+            return Convert.ToDouble(eingabe);
         }
 
         private string GebeOperandEin()

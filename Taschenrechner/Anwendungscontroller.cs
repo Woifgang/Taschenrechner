@@ -1,34 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Taschenrechner
 {
-    class Anwendungscontroller
+    class AnwendungsController
     {
-        private Rechnermodel model;
-        private Consoleview view;
+        private ConsoleView view;
+        private RechnerModel model;
 
-        
-        public Anwendungscontroller(Rechnermodel model, Consoleview view)
+        public AnwendungsController(ConsoleView view, RechnerModel model)
         {
-            this.model = model;
             this.view = view;
+            this.model = model;
         }
 
-        public void AnzeigeConsole()
+        public void Ausfuehren()
         {
-            while (!view.BenutzerFertig)
-            {
-                view.HoleBenutzerEingabe();
-                model.Berechnen();
-                view.Ausgabe();
-            }
-            
-            view.BeendeProgramm();
-        }
+            view.HoleEingabenFuerErsteBerechnungVomBenutzer();
+            model.Berechne();
+            view.GibResultatAus();
+            view.HoleEingabenFuerFortlaufendeBerechnung();
 
+            while (!view.BenutzerWillBeenden)
+            {
+                model.Berechne();
+                view.GibResultatAus();
+                view.HoleEingabenFuerFortlaufendeBerechnung();
+            }
+        }
     }
 }

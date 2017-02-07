@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Taschenrechner
 {
@@ -10,15 +6,11 @@ namespace Taschenrechner
     {
         static void Main(string[] args)
         {
-            Rechnermodel model = new Rechnermodel();
-            Consoleview view = new Consoleview(model);
-            Anwendungscontroller controller = new Anwendungscontroller(model, view);
-          
-            controller.AnzeigeConsole();
+            RechnerModel model = new RechnerModel();
+            ConsoleView view = new ConsoleView(model);
+            AnwendungsController controller = new AnwendungsController(view, model);
 
-            
+            controller.Ausfuehren();
         }
-                
-   }
-
+    }
 }

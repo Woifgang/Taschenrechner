@@ -1,80 +1,86 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Taschenrechner
 {
-    class Consoleview
+    class ConsoleView
     {
-        private Rechnermodel model;
+        private RechnerModel model;
 
-        public bool BenutzerFertig { get; private set; }
-
-        public Consoleview(Rechnermodel model)
+        public ConsoleView(RechnerModel model)
         {
             this.model = model;
-            model.Operand = "unbekannt";
-            BenutzerFertig = false;
-        }
-        
-        public void HoleBenutzerEingabe()
-        {
-            model.ErsteZahl = HoleZahl();
-            model.Operand = GebeOperandEin();
-            model.ZweiteZahl = HoleZahl();
+            BenutzerWillBeenden = false;
         }
 
-        public void Ausgabe()
+        public bool BenutzerWillBeenden { get; private set; }
+
+        public void HoleEingabenFuerErsteBerechnungVomBenutzer()
         {
-            //this.Operand = operand;
-            switch (model.Operand)
+            model.ErsteZahl = HoleZahlVomBenutzer();
+            model.Operation = HoleOperatorVomBenutzer();
+            model.ZweiteZahl = HoleZahlVomBenutzer();
+        }
+
+        public void HoleEingabenFuerFortlaufendeBerechnung()
+        {
+            string eingabe = HoleNaechsteAktionVomBenutzer();
+
+            if (eingabe == "FERTIG")
+            {
+                BenutzerWillBeenden = true;
+            }
+            else
+            {
+                model.ErsteZahl = model.Resultat;
+                model.ZweiteZahl = Convert.ToDouble(eingabe);
+            }
+        }
+
+        private string HoleNaechsteAktionVomBenutzer()
+        {
+            Console.Write("Bitte gib eine weitere Zahl ein (FERTIG zum Beenden): ");
+            return Console.ReadLine();
+        }
+
+        private double HoleZahlVomBenutzer()
+        {
+            string zahl;
+            Console.Write("Bitte gib eine Zahl für die Berechnung ein: ");
+            zahl = Console.ReadLine();
+
+            return Convert.ToDouble(zahl);
+        }
+
+        private string HoleOperatorVomBenutzer()
+        {
+            Console.Write("Bitte gib die auszuführende Operation ein (+, -, /, *): ");
+            return Console.ReadLine();
+        }
+
+        public void GibResultatAus()
+        {
+            switch (model.Operation)
             {
                 case "+":
-                    Console.WriteLine("Das Ergebnis der ~ plus ~ Rechnung lautet: {0}", model.Resultat);
+                    Console.WriteLine("Die Summe ist: {0}", model.Resultat);
                     break;
+
                 case "-":
-                    Console.WriteLine("Das Ergebnis der ~ minus ~ Rechnung lautet: {0}", model.Resultat );
+                    Console.WriteLine("Die Differenz ist: {0}", model.Resultat);
                     break;
-                case "*":
-                    Console.WriteLine("Das Ergebnis der ~ mal ~ Rechnung lautet: {0}", model.Resultat);
-                    break;
+
                 case "/":
-                    Console.WriteLine("Das Ergebnis der ~ geteilt ~ Rechnung lautet: {0}", model.Resultat);
+                    Console.WriteLine("Der Wert des Quotienten ist: {0}", model.Resultat);
+                    break;
+
+                case "*":
+                    Console.WriteLine("Das Produkt ist: {0}", model.Resultat);
                     break;
 
                 default:
-                    Console.WriteLine("Falsche Operation eingeben, es ist nur + - * / möglich");
+                    Console.WriteLine("Du hast eine ungültige Auswahl der Operation getroffen.");
                     break;
             }
         }
-        
-        private double HoleZahl()
-        {
-            Console.Write("Geben Sie bitte eine Zahl ein oder beenden mit FERTIG: ");
-            string eingabe = Console.ReadLine();
-            if (eingabe == "FERTIG")
-            {
-                BenutzerFertig = true;
-                eingabe = "0.0";
-            }
-
-            return Convert.ToDouble(eingabe);
-        }
-
-        private string GebeOperandEin()
-        {
-            Console.Write("Geben Sie + , - , * oder / ein: ");
-            string operand = Console.ReadLine();
-            return operand;
-        }
-
-        public string BeendeProgramm()
-        {
-            Console.Write("Zum Beenden bitte Return drücken");
-            return Console.ReadLine();
-        }
-        
     }
 }

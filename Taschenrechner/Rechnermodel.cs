@@ -1,78 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Taschenrechner
+﻿namespace Taschenrechner
 {
-    class Rechnermodel
+    class RechnerModel
     {
-
-        public string Operand { get; set; }
+        public double Resultat { get; private set; }
+        public string Operation { get; set; }
         public double ErsteZahl { get; set; }
         public double ZweiteZahl { get; set; }
 
-        public Rechnermodel()
+        public RechnerModel()
         {
             Resultat = 0;
+            Operation = "unbekannt";
         }
 
-        public double Resultat { get; private set; }
-
-        public void Berechnen()
+        public void Berechne()
         {
-            switch (Operand)
+            switch (Operation)
             {
                 case "+":
-                    Resultat = Addieren(ErsteZahl, ZweiteZahl);
+                    Resultat = Addiere(ErsteZahl, ZweiteZahl);
                     break;
 
                 case "-":
-                    Resultat = Subtrahieren(ErsteZahl, ZweiteZahl);
-                    break;
-
-                case "*":
-                    Resultat = Multiplizieren(ErsteZahl, ZweiteZahl);
+                    Resultat = Subtrahiere(ErsteZahl, ZweiteZahl);
                     break;
 
                 case "/":
-                    Resultat = Dividieren(ErsteZahl, ZweiteZahl);
+                    Resultat = Dividiere(ErsteZahl, ZweiteZahl);
                     break;
 
-                default:
-                    Resultat = 0;
+                case "*":
+                    Resultat = Multipliziere(ErsteZahl, ZweiteZahl);
                     break;
             }
-            
         }
 
-        // Methode: Addieren
-        private double Addieren(double ersteZahl, double zweiteZahl)
+        private double Addiere(double ersterSummand, double zweiterSummand)
         {
-            double ergebnis = ersteZahl + zweiteZahl;
-            return ergebnis;
+            double summe = ersterSummand + zweiterSummand;
+
+            return summe;
         }
 
-        // Methode: Subtrahieren
-        private double Subtrahieren(double ersteZahl, double zweiteZahl)
+        private double Subtrahiere(double minuend, double subtrahent)
         {
-            double ergebnis = ersteZahl - zweiteZahl;
-            return ergebnis;
+            double differenz = minuend - subtrahent;
+
+            return differenz;
         }
 
-        // Methode: Multiplizieren
-        private double Multiplizieren(double ersteZahl, double zweiteZahl)
+        private double Dividiere(double dividend, double divisor)
         {
-            double ergebnis = ersteZahl * zweiteZahl;
-            return ergebnis;
+            return dividend / divisor;
         }
 
-        // Methode: Dividieren
-        private double Dividieren(double ersteZahl, double zweiteZahl)
+        private double Multipliziere(double multiplikator, double multiplikand)
         {
-            double ergebnnis = ersteZahl / zweiteZahl;
-            return ergebnnis;
+            return multiplikator * multiplikand;
         }
 
     }

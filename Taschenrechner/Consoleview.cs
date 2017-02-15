@@ -24,6 +24,7 @@ namespace Taschenrechner
         public void HoleEingabenFuerFortlaufendeBerechnung()
         {
             string eingabe = HoleNaechsteAktionVomBenutzer();
+            double zahl;
 
             if (eingabe == "FERTIG")
             {
@@ -31,8 +32,14 @@ namespace Taschenrechner
             }
             else
             {
+                while (!double.TryParse(eingabe,out zahl))
+                {
+                    Console.Write("Bitte gib eine Zahl 0-9 ein: ");
+                    Console.Write("Bitte gib eine Zahl für die Berechnung ein: ");
+                    eingabe = Console.ReadLine();
+                }
                 model.ErsteZahl = model.Resultat;
-                model.ZweiteZahl = Convert.ToDouble(eingabe);
+                model.ZweiteZahl = zahl;
             }
         }
 
@@ -44,11 +51,21 @@ namespace Taschenrechner
 
         private double HoleZahlVomBenutzer()
         {
-            string zahl;
+            string eingabe;
+            double zahl;
+            
             Console.Write("Bitte gib eine Zahl für die Berechnung ein: ");
-            zahl = Console.ReadLine();
+            eingabe = Console.ReadLine();
+            
+            while (!double.TryParse(eingabe, out zahl))
+            {
+                Console.Write("Bitte gib eine Zahl 0-9 ein: ");
+                Console.Write("Bitte gib eine Zahl für die Berechnung ein: ");
+                eingabe = Console.ReadLine();
+                
+            }
 
-            return Convert.ToDouble(zahl);
+            return zahl;
         }
 
         private string HoleOperatorVomBenutzer()
